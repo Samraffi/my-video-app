@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full bg-gray-900 text-white transition-all duration-300 ease-in-out z-50
+      className={`h-screen bg-gray-900 text-white transition-all duration-300 ease-in-out z-50
         ${isHovered ? 'w-64' : 'w-20'}
       `}
     >
