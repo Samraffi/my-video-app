@@ -1,0 +1,65 @@
+import React from "react";
+
+const FeaturedVideo = () => {
+  return (
+    <div className="relative w-full h-screen text-white overflow-hidden">
+      <div className="absolute inset-0 z-10">
+        <img
+          src="/FeaturedCoverImage.png"
+          alt="Movie cover"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 z-20 flex flex-col justify-center p-10 bg-gradient-to-t from-black via-transparent to-transparent">
+        <div className="mb-[25vh]">
+          {" "}
+          <span className="text-xl font-bold">Movie</span>
+          <img
+            src="/FeaturedTitleImage.png"
+            alt="Movie logo"
+            className="w-auto h-24 my-4"
+          />
+          <div className="flex items-center space-x-4 text-sm text-gray-400">
+            <span>2021</span>
+            <span>18+</span>
+            <span>1h 48m</span>
+          </div>
+          <p className="mt-4 max-w-lg text-base leading-relaxed">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s.
+          </p>
+          <div className="flex space-x-4 mt-6">
+            <button
+              className="flex items-center cursor-pointer px-6 py-2 bg-white text-black font-bold rounded-md transition-colors duration-200
+                 hover:bg-gray-200 active:bg-gray-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mr-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Play
+            </button>
+            <button
+              className="cursor-pointer px-6 py-2 bg-gray-500 bg-opacity-50 text-white font-bold rounded-md transition-colors duration-200
+                 hover:bg-opacity-70 active:bg-opacity-90"
+            >
+              More info
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default FeaturedVideo;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import { additionalMenuItems, mainMenuItems, MenuItem } from './constants';
+import { additionalMenuItems, mainMenuItems, MenuItem } from '../constants';
 
 
 const Sidebar: React.FC = () => {
@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div
-      className={`h-screen bg-gray-900 text-white transition-all duration-300 ease-in-out z-50
+      className={`h-screen bg-gray-900 text-white transition-all duration-300 ease-in-out
         ${isHovered ? 'w-64' : 'w-20'}
       `}
     >
