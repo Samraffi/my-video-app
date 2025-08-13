@@ -1,7 +1,7 @@
 
 export type MenuItem = {
   name: string;
-  imageUrl: string; // Теперь это путь к импортированной иконке
+  imageUrl: string;
 }
 
 export const mainMenuItems: MenuItem[] = [
