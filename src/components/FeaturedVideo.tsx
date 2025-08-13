@@ -15,7 +15,7 @@ const FeaturedVideo = ({ featuredData }) => {
       <div className="absolute inset-0 z-10">
         {isImageVisible ? (
           <img
-            src={featuredData.CoverImage}
+            src={`/specials/${featuredData.CoverImage}`}
             alt={featuredData.Title}
             className="w-full h-full object-cover"
           />
@@ -33,7 +33,7 @@ const FeaturedVideo = ({ featuredData }) => {
         <div className="mb-[25vh]">
           <span className="text-xl font-bold">{featuredData.Category}</span>
           <img
-            src={featuredData.TitleImage}
+            src={`/specials/${featuredData.TitleImage}`}
             alt={`${featuredData.Title} logo`}
             className="w-auto h-24 my-4"
           />
