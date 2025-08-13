@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useVideoSwitch from "../hooks/useVideoSwitch";
 
 const FeaturedVideo = ({ featuredData }) => {
-  const [isImageVisible, setIsImageVisible] = useState(true);
-
-  useEffect(() => {
-    setIsImageVisible(true);
-
-    if (featuredData.VideoUrl) {
-      const timer = setTimeout(() => {
-        setIsImageVisible(false);
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [featuredData]);
+  const isImageVisible = useVideoSwitch(featuredData);
 
   const formatDuration = (durationInSeconds) => {
     const hours = Math.floor(durationInSeconds / 3600);
