@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import data from "../constants/data.json";
 import { v4 as uuidv4 } from "uuid";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+interface VideoItem {
+  Id: string;
+  Title: string;
+  CoverImage: string;
+  TitleImage: string;
+  Date: string;
+  ReleaseYear: string;
+  MpaRating: string;
+  Category: string;
+  Duration: string;
+  VideoUrl?: string;
+  Description: string;
+}
 
-const Slider = () => {
-  const [sortedData, setSortedData] = useState<typeof data.TendingNow>([]);
+interface SliderProps {
+  onSlideClick: (item: VideoItem) => void;
+  trendingData: VideoItem[];
+}
 
-  useEffect(() => {
-    const sorted = [...data.TendingNow].sort((a, b) => {
-      return new Date(b.Date).getTime() - new Date(a.Date).getTime();
-    });
-
-    setSortedData(sorted);
-  }, []);
-
+const Slider = ({ onSlideClick, trendingData }: SliderProps) => {
   return (
     <div className="max-w-[1840px] absolute bottom-0 z-30">
       <Swiper
@@ -35,16 +42,16 @@ const Slider = () => {
           1280: { slidesPerView: 8 },
         }}
       >
-        {sortedData.map(({ CoverImage }) => (
-          <SwiperSlide key={uuidv4()}>
+        {trendingData.map((item) => (
+          <SwiperSlide key={uuidv4()} onClick={() => onSlideClick(item)}>
             <div style={{ borderRadius: 12, overflow: "hidden" }}>
-              <img className="cursor-pointer" src={`/specials/${CoverImage}`} />
+              <img className="cursor-pointer" src={`/specials/${item.CoverImage}`} alt={item.Title} />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
-}
+};
 
 export default Slider;
