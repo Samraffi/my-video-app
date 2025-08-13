@@ -10,9 +10,9 @@ const posters = Array.from(
   (_, i) => `/specials/https_specials-${i + 1}.png`
 );
 
-export default function PostersCarousel() {
+const Slider = () => {
   return (
-    <div className="max-w-[1840px] absolute bottom-0">
+    <div className="max-w-[1840px] absolute bottom-0 z-30">
       <Swiper
         spaceBetween={5}
         slidesPerView={2}
@@ -30,7 +30,7 @@ export default function PostersCarousel() {
         {posters.map((src) => (
           <SwiperSlide key={src}>
             <div style={{ borderRadius: 12, overflow: "hidden" }}>
-              <img src={src} />
+              <img className="cursor-pointer" src={src} />
             </div>
           </SwiperSlide>
         ))}
@@ -38,3 +38,5 @@ export default function PostersCarousel() {
     </div>
   );
 }
+
+export default Slider;
