@@ -1,38 +1,44 @@
 import React from "react";
+import data from "../constants/data.json"; 
 
 const FeaturedVideo = () => {
+  const featuredData = data.Featured;
+
+  const formatDuration = (durationInSeconds) => {
+    const hours = Math.floor(durationInSeconds / 3600);
+    const minutes = Math.floor((durationInSeconds % 3600) / 60);
+    return `${hours ? hours + 'h ' : ''}${minutes}m`;
+  };
+
   return (
     <div className="relative w-full h-screen text-white overflow-hidden">
       <div className="absolute inset-0 z-10">
         <img
-          src="/FeaturedCoverImage.png"
-          alt="Movie cover"
+          src={featuredData.CoverImage}
+          alt={featuredData.Title}
           className="w-full h-full object-cover"
         />
       </div>
       <div className="absolute inset-0 z-20 flex flex-col justify-center p-10 bg-gradient-to-t from-black via-transparent to-transparent">
         <div className="mb-[25vh]">
-          {" "}
-          <span className="text-xl font-bold">Movie</span>
+          <span className="text-xl font-bold">{featuredData.Category}</span>
           <img
-            src="/FeaturedTitleImage.png"
-            alt="Movie logo"
+            src={featuredData.TitleImage}
+            alt={`${featuredData.Title} logo`}
             className="w-auto h-24 my-4"
           />
           <div className="flex items-center space-x-4 text-sm text-gray-400">
-            <span>2021</span>
-            <span>18+</span>
-            <span>1h 48m</span>
+            <span>{featuredData.ReleaseYear}</span>
+            <span>{featuredData.MpaRating}</span>
+            <span>{formatDuration(featuredData.Duration)}</span>
           </div>
           <p className="mt-4 max-w-lg text-base leading-relaxed">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text ever
-            since the 1500s.
+            {featuredData.Description}
           </p>
           <div className="flex space-x-4 mt-6">
             <button
-              className="flex items-center cursor-pointer px-6 py-2 bg-white text-black font-bold rounded-md transition-colors duration-200
-                 hover:bg-gray-200 active:bg-gray-400"
+              className="flex items-center cursor-pointer px-6 py-2 bg-white text-black font-bold rounded-4xl hover:shadow-lg transition-colors duration-200
+                  hover:bg-gray-200 active:bg-gray-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,17 +55,16 @@ const FeaturedVideo = () => {
               Play
             </button>
             <button
-              className="cursor-pointer px-6 py-2 bg-gray-500 bg-opacity-50 text-white font-bold rounded-md transition-colors duration-200
-                 hover:bg-opacity-70 active:bg-opacity-90"
+              className="cursor-pointer px-6 py-2 rounded-4xl bg-blue-600 bg-opacity-50 text-white font-bold transition-colors duration-200
+                  hover:bg-opacity-70 active:bg-opacity-90"
             >
               More info
             </button>
           </div>
-
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default FeaturedVideo;
