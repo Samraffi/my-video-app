@@ -27,9 +27,9 @@ interface SliderProps {
 
 const Slider = ({ onSlideClick, trendingData }: SliderProps) => {
   return (
-    <div className="max-w-[1840px] absolute bottom-0 z-30">
+    <div className="max-w-[1440px] absolute bottom-0 z-30">
       <Swiper
-        spaceBetween={5}
+        spaceBetween={15}
         slidesPerView={2}
         navigation={false}
         pagination={false}
